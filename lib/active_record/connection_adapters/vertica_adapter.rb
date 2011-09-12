@@ -106,11 +106,13 @@ module ActiveRecord
       end
 
       def select(sql, name = nil)
-        rows = []
-        @connection = ::Vertica.connect(@connection.options)
-        @connection.query(sql) {|row| rows << row }
-        @connection.close
-        rows
+        log(sql,name) do
+          rows = []
+          @connection = ::Vertica.connect(@connection.options)
+          @connection.query(sql,name) {|row| rows << row }
+          @connection.close
+          rows
+        end
       end
 
       ## QUOTING
