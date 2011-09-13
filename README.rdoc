@@ -1,9 +1,11 @@
 = activerecord_vertica_adapter
 
-This adapter at the moment can only query a vertica database.
+This adapter can only query a vertica database.
+A bit more work is required to support migrations.
+
 
 DEPENDENCIES
-gem vertica 'https://github.com/sprsquish/vertica'
+ gem vertica 'https://github.com/sprsquish/vertica'
 
 
 TODO:

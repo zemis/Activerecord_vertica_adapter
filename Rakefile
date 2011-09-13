@@ -15,7 +15,7 @@ require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "activerecord_vertica_adapter"
-  gem.homepage = "http://github.com/jriga/activerecord_vertica_adapter"
+  gem.homepage = "http://github.com/zemis/activerecord_vertica_adapter"
   gem.license = "MIT"
   gem.summary = %Q{ActiveRecord adapter for Vertica database}
   gem.description = %Q{ActiveRecord adapter for Vertica databaes}
