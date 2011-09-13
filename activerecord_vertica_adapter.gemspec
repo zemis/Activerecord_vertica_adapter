@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = [%q{Jerome Riga}]
-  s.date = %q{2011-09-12}
+  s.date = %q{2011-09-13}
   s.description = %q{ActiveRecord adapter for Vertica databaes}
   s.email = %q{jriga@zemis.co.uk}
   s.extra_rdoc_files = [
@@ -30,7 +30,7 @@ Gem::Specification.new do |s|
     "test/helper.rb",
     "test/test_activerecord_vertica_adapter.rb"
   ]
-  s.homepage = %q{http://github.com/jriga/activerecord_vertica_adapter}
+  s.homepage = %q{http://github.com/zemis/activerecord_vertica_adapter}
   s.licenses = [%q{MIT}]
   s.require_paths = [%q{lib}]
   s.rubygems_version = %q{1.8.6}
