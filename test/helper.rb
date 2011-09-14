@@ -8,6 +8,9 @@ rescue Bundler::BundlerError => e
   exit e.status_code
 end
 require 'test/unit'
+require 'yaml'
+
+CONFIG = YAML.load_file(File.join(File.dirname(__FILE__), 'database.yml'))
 
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))

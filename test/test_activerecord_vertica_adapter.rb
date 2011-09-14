@@ -2,16 +2,7 @@ require 'helper'
 
 class TestVerticaAdapter < Test::Unit::TestCase
   def setup
-    config = {
-      :host => '91.216.137.103',
-      :port => 5433,
-      :reconnect => true,
-      :database => 'buzzDW',
-      :schema => 'voting_system',
-      :user =>  'vertica-admin'
-    }
-
-    @conn = Vertica.connect(config)
+    @conn = Vertica.connect(CONFIG)
     @adapter = ::ActiveRecord::ConnectionAdapters::Vertica.new(@conn)
   end
 
