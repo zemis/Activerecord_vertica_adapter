@@ -1,6 +1,6 @@
 source "http://rubygems.org"
-gem 'activerecord', '3.0.5'
-gem 'vertica', '0.8.1'
+gem 'activerecord', '~>3.0.5'
+gem 'vertica', '~>0.8.1'
 
 group :development do
   gem "yard", "~> 0.6.0"

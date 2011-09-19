@@ -29,9 +29,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord (= 3.0.5)
+  activerecord (~> 3.0.5)
   bundler (~> 1.0.0)
   jeweler (~> 1.6.4)
   rcov
-  vertica (= 0.8.1)
+  vertica (~> 0.8.1)
   yard (~> 0.6.0)
