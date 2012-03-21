@@ -34,11 +34,28 @@ module ActiveRecord
     end
 
     class << self
-      private
       def instantiate(record)
-        model = find_sti_class(record[inheritance_column]).new(record)
-        model
+        record.stringify_keys!
+        
+        sti_class = find_sti_class(record[inheritance_column])
+        record_id = sti_class.primary_key && record[sti_class.primary_key]
+        if ActiveRecord::IdentityMap.enabled? && record_id
+          if (column = sti_class.columns_hash[sti_class.primary_key]) && column.number?
+            record_id = record_id.to_i
+          end
+          if instance = IdentityMap.get(sti_class, record_id)
+            instance.reinit_with('attributes' => record)
+          else
+           instance = sti_class.allocate.init_with('attributes' => record)
+            IdentityMap.add(instance)
+          end
+        else
+          instance = sti_class.allocate.init_with('attributes' => record)
+        end
+
+        instance
       end
+
     end
   end
 
@@ -61,7 +78,10 @@ module ActiveRecord
       # Disconnects from the database if already connected, and establishes a
       # new connection with the database.
       def reconnect!
-        @connection.reset
+        @connection.reset_connection
+      end
+      def reset
+        reconnect!
       end
       
       # Close the connection.
@@ -105,12 +125,16 @@ module ActiveRecord
         columns
       end
 
-      def select(sql, name = nil)
+      def select(sql, name = nil, binds = [])
         rows = []
         @connection = ::Vertica.connect(@connection.options)
-        @connection.query(sql,name) {|row| rows << row }
+        @connection.query(sql) {|row| rows << row }
         @connection.close
         rows
+      end
+
+      def primary_key(table)
+        ''
       end
 
       ## QUOTING
