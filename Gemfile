@@ -1,5 +1,5 @@
 source "http://rubygems.org"
-gem 'activerecord', '~>3.x.x'
+gem 'activerecord', '~>3'
 gem 'vertica', '~>0.9.x'
 
 group :development do
