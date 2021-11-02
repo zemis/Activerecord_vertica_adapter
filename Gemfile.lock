@@ -29,7 +29,7 @@ GEM
     vertica (0.9.1)
       jeweler
       rake
-    yard (0.6.8)
+    yard (0.9.20)
 
 PLATFORMS
   ruby
@@ -40,4 +40,4 @@ DEPENDENCIES
   jeweler (~> 1.6.4)
   simplecov
   vertica (~> 0.9.x)
-  yard (~> 0.6.0)
+  yard (~> 0.9.20)
