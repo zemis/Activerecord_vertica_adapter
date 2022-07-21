@@ -25,7 +25,7 @@ GEM
       multi_json (~> 1.0)
       simplecov-html (~> 0.5.3)
     simplecov-html (0.5.3)
-    tzinfo (0.3.32)
+    tzinfo (0.3.61)
     vertica (0.9.1)
       jeweler
       rake
